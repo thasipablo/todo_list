@@ -64,6 +64,7 @@ svg {
   border-bottom: 1px solid var(--neutral-100);
 }
 
+.todos-header,
 .todo-item {
   display: flex;
   align-items: center;
