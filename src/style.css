@@ -32,7 +32,8 @@ li {
   list-style-type: none;
 }
 
-input[type='text'], button {
+input[type='text'],
+button {
   border: none;
   outline: none;
   flex: 1;
@@ -45,8 +46,8 @@ input::placeholder {
 
 .container {
   background-color: #fff;
-  width: 370px;
-  box-shadow: 4px 4px 8px #d0d0d0;
+  min-width: 425px;
+  box-shadow: 0 2px 8px #b9b9b9;
 }
 
 .input-wrapper {
