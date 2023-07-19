@@ -32,7 +32,7 @@ li {
   list-style-type: none;
 }
 
-input, button {
+input[type='text'], button {
   border: none;
   outline: none;
   flex: 1;
@@ -52,6 +52,12 @@ input::placeholder {
 .input-wrapper {
   display: flex;
   align-items: center;
+}
+
+.todo-item-description {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 svg {
