@@ -61,7 +61,7 @@ input::placeholder {
 
 .container {
   background-color: #fff;
-  min-width: 425px;
+  min-width: 475px;
   box-shadow: 0 2px 8px #b9b9b9;
 }
 
@@ -73,6 +73,7 @@ input::placeholder {
 .todo-item-description {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 0.5rem;
 }
 

@@ -37,7 +37,7 @@ export const removeTodo = (description) => {
   displayTodos();
 };
 
-export const completeTodo = (description, state) => {
+export const completeTodo = (description) => {
   let todos = getTodosFromStorage();
   const todo = todos.find((todo) => todo.description == description);
   

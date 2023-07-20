@@ -18,10 +18,11 @@ const displayTodos = () => {
     checkBox.type = "checkbox";
     checkBox.checked = todo.completed;
     checkBox.classList.add("completed-check");
-    const descriptionText = document.createElement("div");
+    const descriptionText = document.createElement("input");
+    descriptionText.type = 'text';
     descriptionText.classList.add("todo-description-text");
+    descriptionText.value = todo.description;
 
-    descriptionText.innerHTML = todo.description;
     const icon = document.createElement("button");
     icon.classList.add("remove-btn");
     icon.innerHTML = `
@@ -44,7 +45,7 @@ const displayTodos = () => {
     btn.addEventListener("click", (e) => {
       const todoItem = e.target.closest(".todo-item");
       const description = todoItem.querySelector(".todo-description-text");
-      removeTodo(description.innerText);
+      removeTodo(description.value);
     });
   });
 
@@ -54,7 +55,15 @@ const displayTodos = () => {
     checkbox.addEventListener("click", () => {
       const todoItem = checkbox.closest(".todo-item");
       const description = todoItem.querySelector(".todo-description-text");
-      completeTodo(description.innerText, checkbox.checked);
+      completeTodo(description.value, checkbox.checked);
+    });
+  });
+
+  // Add click event to complete checkboxes
+  const todoDescriptions = document.querySelectorAll(".todo-description-text");
+  todoDescriptions.forEach((description) => {
+    description.addEventListener("click", () => {
+      
     });
   });
 };
