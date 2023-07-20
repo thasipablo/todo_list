@@ -41,10 +41,12 @@ button {
 }
 
 .submit-btn {
-  width: 16px;
+  width: 20px;
+  height: 20px;
   flex: none;
   cursor: pointer;
   background-color: transparent;
+  padding-right: 4px;
 }
 
 input::placeholder {
@@ -71,6 +73,7 @@ input::placeholder {
 svg {
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
 
 .component {
