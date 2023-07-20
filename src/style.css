@@ -32,7 +32,7 @@ li {
   list-style-type: none;
 }
 
-input[type='text'],
+input[type="text"],
 button {
   border: none;
   outline: none;
@@ -40,13 +40,19 @@ button {
   color: var(--neutral-200);
 }
 
-.submit-btn {
+.submit-btn,
+.remove-btn,
+.refresh-btn {
   width: 20px;
   height: 20px;
   flex: none;
   cursor: pointer;
   background-color: transparent;
   padding-right: 4px;
+}
+
+.remove-btn {
+  margin-right: 0.5rem;
 }
 
 input::placeholder {
@@ -73,7 +79,6 @@ input::placeholder {
 svg {
   width: 16px;
   height: 16px;
-  cursor: pointer;
 }
 
 .component {
@@ -86,6 +91,10 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.todo-item {
+  padding-right: 0.5rem;
 }
 
 .clear-completed-btn {
