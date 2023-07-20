@@ -1,5 +1,5 @@
-import { getTodosFromStorage, updateTodosInStorage } from "./storage";
-import { removeTodo } from "./todoCrud";
+import { getTodosFromStorage } from "./storage";
+import { completeTodo, removeTodo } from "./todoCrud";
 
 const displayTodos = () => {
   const todoListTag = document.querySelector(".todo-list");
@@ -16,6 +16,8 @@ const displayTodos = () => {
     description.classList.add("todo-item-description");
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.checked = todo.completed;
+    checkBox.classList.add("completed-check");
     const descriptionText = document.createElement("div");
     descriptionText.classList.add("todo-description-text");
 
@@ -43,6 +45,16 @@ const displayTodos = () => {
       const todoItem = e.target.closest(".todo-item");
       const description = todoItem.querySelector(".todo-description-text");
       removeTodo(description.innerText);
+    });
+  });
+
+  // Add click event to complete checkboxes
+  const checkboxes = document.querySelectorAll(".completed-check");
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", () => {
+      const todoItem = checkbox.closest(".todo-item");
+      const description = todoItem.querySelector(".todo-description-text");
+      completeTodo(description.innerText, checkbox.checked);
     });
   });
 };

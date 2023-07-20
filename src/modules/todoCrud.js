@@ -36,3 +36,17 @@ export const removeTodo = (description) => {
   updateTodosInStorage(cleanTodos);
   displayTodos();
 };
+
+export const completeTodo = (description, state) => {
+  let todos = getTodosFromStorage();
+  const todo = todos.find((todo) => todo.description == description);
+  
+  // update todo completed state
+  todo.completed = todo.completed ? false : true;
+
+  const index = todos.indexOf(todo);
+  todos[index] = todo;
+
+  updateTodosInStorage(todos);
+  displayTodos();
+};
