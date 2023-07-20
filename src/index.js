@@ -1,7 +1,7 @@
-import "./style.css";
-import { getTodosFromStorage } from "./modules/storage";
-import { addNewTodo, removeTodo } from "./modules/todoCrud";
-import displayTodos from "./modules/display";
+import './style.css';
+import { getTodosFromStorage } from './modules/storage.js';
+import { addNewTodo, removeTodo } from './modules/todoCrud.js';
+import displayTodos from './modules/display.js';
 
 // CRUD functions for To Do list
 addNewTodo();

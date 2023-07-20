@@ -1,12 +1,12 @@
-import displayTodos from "./display";
-import { getTodosFromStorage, updateTodosInStorage } from "./storage";
+import displayTodos from './display.js';
+import { getTodosFromStorage, updateTodosInStorage } from './storage.js';
 
 export const addNewTodo = () => {
-  const form = document.querySelector(".form");
+  const form = document.querySelector('.form');
   const todos = getTodosFromStorage();
-  form.addEventListener("submit", (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let todoText = form.querySelector(".todo-input");
+    const todoText = form.querySelector('.todo-input');
     if (todoText.value) {
       const todo = {
         index: todos.length + 1,
@@ -18,14 +18,14 @@ export const addNewTodo = () => {
       updateTodosInStorage(todos);
       displayTodos();
 
-      todoText.value = "";
+      todoText.value = '';
     }
   });
 };
 
 export const removeTodo = (description) => {
   const todos = getTodosFromStorage();
-  const filteredTodos = todos.filter((todo) => todo.description != description);
+  const filteredTodos = todos.filter((todo) => todo.description !== description);
 
   // reset indices
   const cleanTodos = [];
@@ -38,11 +38,25 @@ export const removeTodo = (description) => {
 };
 
 export const completeTodo = (description) => {
-  let todos = getTodosFromStorage();
-  const todo = todos.find((todo) => todo.description == description);
-  
+  const todos = getTodosFromStorage();
+  const todo = todos.find((todo) => todo.description === description);
+
   // update todo completed state
-  todo.completed = todo.completed ? false : true;
+  todo.completed = !todo.completed;
+
+  const index = todos.indexOf(todo);
+  todos[index] = todo;
+
+  updateTodosInStorage(todos);
+  displayTodos();
+};
+
+export const updateTodo = (description, prevValue) => {
+  const todos = getTodosFromStorage();
+  const todo = todos.find((todo) => todo.description === prevValue);
+
+  // update todo description
+  todo.description = description;
 
   const index = todos.indexOf(todo);
   todos[index] = todo;
