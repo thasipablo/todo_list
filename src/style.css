@@ -40,6 +40,13 @@ button {
   color: var(--neutral-200);
 }
 
+.submit-btn {
+  width: 16px;
+  flex: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
 input::placeholder {
   font-style: italic;
 }
