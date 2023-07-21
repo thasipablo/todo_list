@@ -1,5 +1,5 @@
 // Get tasks from local storage or initialize an empty array if no tasks exist
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 // Function to save tasks in local storage
 function saveTasks() {
@@ -20,7 +20,6 @@ function addTask(description) {
 // Function to delete a task by its index
 function deleteTask(index) {
   tasks.splice(index, 1);
-  // Update the indexes of the remaining tasks
   tasks.forEach((task, i) => {
     task.index = i + 1;
   });
@@ -39,6 +38,4 @@ function toggleTaskCompletion(index) {
   saveTasks();
 }
 
-export {
-  tasks, addTask, deleteTask, editTask, toggleTaskCompletion,
-};
+export { tasks, addTask, deleteTask, editTask, toggleTaskCompletion, saveTasks };
