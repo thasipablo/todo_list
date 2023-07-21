@@ -1,5 +1,5 @@
 import { getTodosFromStorage } from './storage.js';
-import { completeTodo, removeTodo, updateTodo } from './todoCrud.js';
+import { completeTodo, removeTodo, updateTodo } from './todoUtils.js';
 
 const displayTodos = () => {
   const todoListTag = document.querySelector('.todo-list');
