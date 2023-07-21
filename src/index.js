@@ -1,8 +1,8 @@
-import './style.css'
+import './style.css';
 
 import {
   tasks, addTask, deleteTask, editTask, toggleTaskCompletion,
-} from './todoFunctions';
+} from './todoFunctions.js';
 
 const renderTasks = () => {
   const app = document.getElementById('app');
@@ -42,7 +42,7 @@ const renderTasks = () => {
 
       description.appendChild(checkbox);
       description.appendChild(input);
-      
+
       // Add an event listener for the Enter key press to finish editing
       input.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
@@ -75,7 +75,6 @@ const handleAddTask = (e) => {
   e.preventDefault();
   const inputField = document.querySelector('.todo-input');
   const taskDescription = inputField.value.trim();
-  console.log('todo:', taskDescription);
   if (taskDescription !== '') {
     addTask(taskDescription);
     inputField.value = '';
