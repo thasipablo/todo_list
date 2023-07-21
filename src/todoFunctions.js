@@ -9,9 +9,9 @@ function saveTasks() {
 // Function to add a new task
 function addTask(description) {
   const newTask = {
+    index: tasks.length + 1,
     description,
     completed: false,
-    index: tasks.length + 1,
   };
   tasks.push(newTask);
   saveTasks();
