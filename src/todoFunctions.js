@@ -40,5 +40,5 @@ const toggleTaskCompletion = (index) => {
 };
 
 export {
-  tasks, addTask, deleteTask, editTask, toggleTaskCompletion, saveTasks
+  tasks, addTask, deleteTask, editTask, toggleTaskCompletion, saveTasks,
 };
