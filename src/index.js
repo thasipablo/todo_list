@@ -1,55 +1,9 @@
-// src/index.js
+import {
+  addTask, saveTasksToLocalStorage, deleteTask, editTask,
+} from './modules/taskUtils.js';
 
 // Initialize tasks variable as let instead of const
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-const initTodoList = () => {
-  const todoList = document.querySelector('.todo-list');
-  todoList.innerHTML = '';
-
-  tasks.forEach((task) => {
-    const listItem = createTaskElement(task);
-    todoList.appendChild(listItem);
-  });
-};
-
-// Helper functions
-const saveTasksToLocalStorage = () => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
-
-const addTask = (description) => {
-  const newTask = {
-    description,
-    completed: false,
-    index: tasks.length + 1,
-  };
-
-  tasks.push(newTask);
-  saveTasksToLocalStorage();
-  initTodoList();
-};
-
-const deleteTask = (index) => {
-  tasks.splice(index - 1, 1);
-
-  tasks.forEach((task, i) => {
-    task.index = i + 1;
-  });
-
-  saveTasksToLocalStorage();
-  initTodoList();
-};
-
-const editTask = (index, newDescription) => {
-  const task = tasks.find((task) => task.index === index);
-
-  if (task) {
-    task.description = newDescription;
-    saveTasksToLocalStorage();
-    initTodoList();
-  }
-};
 
 const createTaskElement = (task) => {
   const listItem = document.createElement('li');
@@ -87,6 +41,16 @@ const createTaskElement = (task) => {
   return listItem;
 };
 
+const initTodoList = () => {
+  const todoList = document.querySelector('.todo-list');
+  todoList.innerHTML = '';
+
+  tasks.forEach((task) => {
+    const listItem = createTaskElement(task);
+    todoList.appendChild(listItem);
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initTodoList();
 
@@ -96,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const todoInput = document.querySelector('.todo-input');
     const description = todoInput.value.trim();
     if (description) {
-      addTask(description);
+      addTask(tasks, description); // Use addTask function from taskUtils.js
       todoInput.value = '';
     }
   });
@@ -107,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tasks.forEach((task, i) => {
       task.index = i + 1;
     });
-    saveTasksToLocalStorage();
+    saveTasksToLocalStorage(tasks);
     initTodoList();
   });
 
