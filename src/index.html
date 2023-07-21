@@ -3,32 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>Todo List</title>
 </head>
 <body>
-  <main>
-    <div class="container">
-      <div class="component todos-header">
-        <div>Today's To Do</div>
-        <button class="refresh-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-          </svg>
-        </button>        
-      </div>
-      <form class="component form">
-        <div class="input-wrapper">
-          <input type="text" class="todo-input" placeholder="Add to your list...">
-          <button type="submit" class="submit-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-            </svg>
-          </button>
-        </div>
-      </form>
-      <ul class="todo-list"></ul>
-      <button class="component clear-completed-btn">Clear all completed</button>
-    </div>
-  </main>
+  <div>
+    <input type="text" id="task-input" placeholder="Enter task description">
+    <button id="add-task-btn">Add Task</button>
+  </div>
+
+  <div id="app">
+    <!-- Todo List placeholder will be populated dynamically -->
+  </div>
+
+  <script src="dist/bundle.js"></script>
 </body>
 </html>
