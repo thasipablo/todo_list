@@ -32,12 +32,27 @@ li {
   list-style-type: none;
 }
 
-input[type='text'],
+input[type="text"],
 button {
   border: none;
   outline: none;
   flex: 1;
   color: var(--neutral-200);
+}
+
+.submit-btn,
+.remove-btn,
+.refresh-btn {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding-right: 4px;
+}
+
+.remove-btn {
+  margin-right: 0.5rem;
 }
 
 input::placeholder {
@@ -46,7 +61,7 @@ input::placeholder {
 
 .container {
   background-color: #fff;
-  min-width: 425px;
+  min-width: 475px;
   box-shadow: 0 2px 8px #b9b9b9;
 }
 
@@ -58,6 +73,7 @@ input::placeholder {
 .todo-item-description {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 0.5rem;
 }
 
@@ -71,11 +87,19 @@ svg {
   border-bottom: 1px solid var(--neutral-100);
 }
 
+.component.todo-item {
+  padding: 0.7rem 0.5rem 0.7rem 1rem;
+}
+
 .todos-header,
 .todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.todo-item {
+  padding-right: 0.5rem;
 }
 
 .clear-completed-btn {
