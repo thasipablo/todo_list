@@ -10,7 +10,7 @@ const clearCompletedTasks = () => {
   });
 
   // Clear the original tasks array
-  tasks.length = 0; 
+  tasks.length = 0;
   tasks.push(...filteredTasks);
 
   saveTasks();
