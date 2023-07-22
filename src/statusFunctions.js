@@ -2,15 +2,16 @@ import { tasks, saveTasks } from './todoFunctions.js';
 
 // Function to clear all completed tasks
 const clearCompletedTasks = () => {
-  tasks.forEach((task, index) => {
-    if (task.completed) {
-      tasks.splice(index, 1);
-    }
-  });
+  const filteredTasks = tasks.filter((task) => !task.completed);
 
-  tasks.forEach((task, index) => {
+  // Update the indexes of the remaining tasks
+  filteredTasks.forEach((task, index) => {
     task.index = index + 1;
   });
+
+  // Clear the original tasks array
+  tasks.length = 0; 
+  tasks.push(...filteredTasks);
 
   saveTasks();
 };
