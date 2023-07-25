@@ -1,8 +1,14 @@
 import './style.css';
 
 import {
-  tasks, addTask, deleteTask, editTask, toggleTaskCompletion,
+  tasks,
+  addTask,
+  deleteTask,
+  editTask,
+  toggleTaskCompletion,
 } from './todoFunctions.js';
+
+import clearCompletedTasks from './statusFunctions.js';
 
 const renderTasks = () => {
   const app = document.getElementById('app');
@@ -69,6 +75,13 @@ const renderTasks = () => {
     });
 
   app.appendChild(list);
+
+  // Create "Clear all completed" button
+  const clearCompletedButton = document.querySelector('.clear-completed-btn');
+  clearCompletedButton.addEventListener('click', () => {
+    clearCompletedTasks();
+    renderTasks();
+  });
 };
 
 const handleAddTask = (e) => {
